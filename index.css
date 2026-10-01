@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f7eedd;
+  --color-parchment: #fdf8ec;
+  --color-blush: #efd9c3;
+  --color-ink: #2b160c;
+  --color-coffee: #472a18;
+  --color-mocha: #6b4a33;
+  --color-caramel: #e0762e;
+  --color-caramel-deep: #bf5a16;
+  --color-honey: #f2a33c;
+  --color-pistachio: #7fa05a;
+  --color-sage: #b7c9a4;
+
+  --font-display: "Bricolage Grotesque", "Outfit", sans-serif;
+  --font-body: "Outfit", sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-slow: marquee 55s linear infinite;
+  --animate-spin-slow: spin-slow 24s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delay: float 7.5s ease-in-out -3s infinite;
+  --animate-steam: steam 3s ease-in-out infinite;
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--float-rot, 0deg));
+    }
+    50% {
+      transform: translateY(-12px) rotate(var(--float-rot, 0deg));
+    }
+  }
+  @keyframes steam {
+    0% {
+      opacity: 0;
+      transform: translateY(6px) scaleX(1);
+    }
+    35% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-14px) scaleX(1.6);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink font-body antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-caramel);
+  color: var(--color-cream);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-mocha);
+  border-radius: 8px;
+  border: 2px solid var(--color-cream);
+}
+
+@layer utilities {
+  .text-stroke-ink {
+    -webkit-text-stroke: 2px var(--color-ink);
+    color: transparent;
+  }
+  .text-stroke-cream {
+    -webkit-text-stroke: 2px var(--color-cream);
+    color: transparent;
+  }
+  .text-stroke-ink-thin {
+    -webkit-text-stroke: 1.5px var(--color-ink);
+    color: transparent;
+  }
+  .bg-dots {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--color-ink) 9%, transparent) 1.5px,
+      transparent 1.5px
+    );
+    background-size: 22px 22px;
+  }
+  .bg-dots-cream {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--color-cream) 14%, transparent) 1.5px,
+      transparent 1.5px
+    );
+    background-size: 24px 24px;
+  }
+  .marquee-reverse {
+    animation-direction: reverse;
+  }
+  .marquee-paused:hover > * {
+    animation-play-state: paused;
+  }
+}
