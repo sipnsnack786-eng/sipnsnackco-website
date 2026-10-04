@@ -19,7 +19,7 @@ import {
   Package,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { BULK_OFF, BULK_QTY, fmt, priceFor, qtyOptions, SIZES, SITE } from "../data/site";
+import { BULK_OFF, BULK_QTY, fmt, priceFor, qtyOptions, SIZES, SITE } from "./site";
 
 const segments = [
   { icon: Coffee, label: "Café" },
