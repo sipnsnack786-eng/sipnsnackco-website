@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Cookie, Menu, X } from "lucide-react";
-import { SITE } from "../data/site";
+import { SITE } from "./site";
 
 const links = [
   { label: "Product", href: "#product" },
