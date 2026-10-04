@@ -11,7 +11,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { SITE } from "../data/site";
+import { SITE } from "./site";
 
 export function Footer() {
   return (
