@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { BadgeDollarSign, FileText, Leaf, Package } from "lucide-react";
 import { Eyebrow, Reveal } from "./Reveal";
-import { fmt, priceFor, products, SIZES, SLEEVE_SIZE, SITE, type Product } from "../data/site";
+import { fmt, priceFor, products, SIZES, SLEEVE_SIZE, SITE, type Product } from "./site";
 
 function ProductCard({ p, i }: { p: Product; i: number }) {
   const [ml, setMl] = useState(200);
