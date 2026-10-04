@@ -40,7 +40,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-dots opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
 
       <div className="relative mx-auto max-w-6xl px-4 text-center">
-        <h1 className="relative font-display text-[clamp(4rem,15vw,11.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.03em]">
+        <h1 className="relative font-display text-[clamp(4rem,15vw,11.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.03em]" aria-label="Edible Cups for Cafés, Hospitality and Events">
           {word("Bite.", 0.05)}
           {word(<span className="text-stroke-ink">Sip.</span>, 0.15)}
 
