@@ -62,7 +62,7 @@ export const steps: Step[] = [
   {
     n: "01",
     title: "Fill it up",
-    body: "Espresso, flat white, hot cocoa, a slow Sunday chai. Our cocoa-butter lining keeps every cup crispy for a full 40 minutes — hot or iced.",
+    body: "Espresso, flat white, hot cocoa, a slow Sunday chai. Pour your beverage, enjoy your drink, then eat the cup.",
     scribble: "no soggy bottoms!",
   },
   {
@@ -89,10 +89,10 @@ export const marqueeWords = [
   "Sip",
   "Smile",
   "Edible cups from $0.65/pc",
-  "4 sizes · 100–250 ml",
-  "10% off 1,000+ pc orders",
+  "Edible cups for beverage service",
+  "Business and wholesale inquiries",
   "Free Canada & USA delivery",
-  "Vanilla · Cardamom · Chocolate",
+  "Request product information",
 ];
 
 export const SITE = {
