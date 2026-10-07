@@ -74,8 +74,8 @@ export const steps: Step[] = [
   {
     n: "03",
     title: "Eat the cup",
-    body: "Last sip, first bite. The evidence disappears, the dishes stay clean, and a landfill somewhere gets a day off.",
-    scribble: "zero dishes. zero waste.",
+    body: "Finish your drink, then enjoy the edible cup.",
+    scribble: "pour · sip · bite",
   },
 ];
 
