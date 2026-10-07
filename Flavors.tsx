@@ -138,7 +138,7 @@ export function Flavors() {
 
         <Reveal delay={0.25}>
           <p className="mt-10 text-center text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
-            Baked daily at {SITE.address1} · Free delivery across Canada & the USA
+            Business inquiries · Serving Canada & the USA
           </p>
         </Reveal>
       </div>
