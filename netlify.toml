@@ -5,6 +5,31 @@
   force = true
 
 [[redirects]]
+  from = "/wholesale"
+  to = "/wholesale.html"
+  status = 200
+
+[[redirects]]
+  from = "/cafes"
+  to = "/cafes.html"
+  status = 200
+
+[[redirects]]
+  from = "/events"
+  to = "/events.html"
+  status = 200
+
+[[redirects]]
+  from = "/hospitality"
+  to = "/hospitality.html"
+  status = 200
+
+[[redirects]]
+  from = "/distributors"
+  to = "/distributors.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
