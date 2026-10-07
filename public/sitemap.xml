@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.sipnsnackco.ca/</loc></url>
-  <url><loc>https://www.sipnsnackco.ca/wholesale</loc></url>
-  <url><loc>https://www.sipnsnackco.ca/cafes</loc></url>
-  <url><loc>https://www.sipnsnackco.ca/events</loc></url>
-  <url><loc>https://www.sipnsnackco.ca/hospitality</loc></url>
-  <url><loc>https://www.sipnsnackco.ca/distributors</loc></url>
+  <url>
+    <loc>https://www.sipnsnackco.ca/</loc>
+  </url>
+  <url>
+    <loc>https://www.sipnsnackco.ca/wholesale</loc>
+  </url>
+  <url>
+    <loc>https://www.sipnsnackco.ca/cafes</loc>
+  </url>
+  <url>
+    <loc>https://www.sipnsnackco.ca/events</loc>
+  </url>
+  <url>
+    <loc>https://www.sipnsnackco.ca/hospitality</loc>
+  </url>
+  <url>
+    <loc>https://www.sipnsnackco.ca/distributors</loc>
+  </url>
 </urlset>
