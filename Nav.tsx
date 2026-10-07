@@ -9,6 +9,8 @@ const links = [
   { label: "Flavors & Sizes", href: "#flavors" },
   { label: "Pricing", href: "#pricing" },
   { label: "Who We Serve", href: "#segments" },
+  { label: "Wholesale", href: "/wholesale" },
+  { label: "For Cafés", href: "/cafes" },
 ];
 
 export function Nav() {
