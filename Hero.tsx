@@ -113,7 +113,7 @@ export function Hero() {
                 className="animate-float flex items-center gap-2 rounded-2xl bg-ink px-4 py-2.5 text-cream shadow-xl shadow-ink/30"
               >
                 <Timer className="h-4 w-4 text-honey" />
-                <span className="font-display text-sm font-extrabold">Crispy 40+ min</span>
+                <span className="font-display text-sm font-extrabold">Edible cup</span>
               </div>
             </motion.div>
 
@@ -166,8 +166,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.55 }}
           className="mx-auto mt-10 max-w-xl text-balance text-lg text-mocha md:text-xl"
         >
-          Crispy wafer coffee cups that hold your flat white for 40 minutes — then hold their own
-          with a glass of milk. <span className="font-semibold text-ink">Drink it. Then eat the cup.</span>
+          Edible beverage cups designed for coffee, latte and chai service. <span className="font-semibold text-ink">Drink it. Then eat the cup.</span>
         </motion.p>
 
         <motion.div
