@@ -34,12 +34,12 @@ const segments = [
   {
     icon: Briefcase,
     title: "Corporate events",
-    body: "Branded, edible logo stamps on every cup. Meetings, conferences, trade shows — sustainability you can actually eat.",
+    body: "Explore edible cups for meetings, conferences, trade shows and corporate hospitality.",
   },
   {
     icon: Building2,
     title: "Hotels",
-    body: "In-room turndown cups, lobby bars, and banquet service. Case pricing, scheduled deliveries, zero landfill liability.",
+    body: "In-room turndown cups, lobby bars, and banquet service. Contact us about business supply for hotel and banquet service.",
   },
   {
     icon: UtensilsCrossed,
