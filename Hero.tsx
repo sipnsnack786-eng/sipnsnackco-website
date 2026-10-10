@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Marquee } from "./Marquee";
-import { fmt, marqueeWords, SIZES } from "../data/site";
+import { fmt, marqueeWords, SIZES } from "./site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
