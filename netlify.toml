@@ -1,3 +1,9 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "https://sipnsnackco.ca/*"
+  to = "https://www.sipnsnackco.ca/:splat"
+  status = 301
+  force = true

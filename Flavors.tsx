@@ -116,9 +116,9 @@ export function Flavors() {
         <Reveal delay={0.2}>
           <div className="mt-12 grid gap-4 rounded-3xl border border-ink/10 bg-parchment p-6 sm:grid-cols-3 md:p-7">
             {[
-              [Leaf, "100% edible & allergen-labelled", "Spec sheet available on request"],
+              [Leaf, "Product & allergen information", "Spec sheet available on request"],
               [BadgeDollarSign, "10% off at 1,000+ pcs", "Mixed sizes & flavors count together"],
-              [FileText, "Private label & logo stamps", "Custom edible branding from 240+ pcs"],
+              [FileText, "Business supply options", "Discuss your presentation requirements"],
             ].map(([Icon, title, sub]) => {
               const C = Icon as typeof Leaf;
               return (

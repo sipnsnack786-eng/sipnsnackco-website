@@ -10,7 +10,7 @@ function word(children: React.ReactNode, delay: number, cls = "") {
   return (
     <span className="block overflow-hidden">
       <motion.span
-        initial={{ y: "110%" }}
+        initial={false}
         animate={{ y: 0 }}
         transition={{ duration: 1, delay, ease }}
         className={`block ${cls}`}
@@ -38,13 +38,13 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-dots opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
 
       <div className="relative mx-auto max-w-6xl px-4 text-center">
-        <h1 className="relative font-display text-[clamp(4rem,15vw,11.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.03em]">
+        <h1 aria-label="Edible cups for cafés, hospitality and events — Bite. Sip. Smile." className="relative font-display text-[clamp(4rem,15vw,11.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.03em]">
           {word("Bite.", 0.05)}
           {word(<span className="text-stroke-ink">Sip.</span>, 0.15)}
 
           {/* the cup */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.3, delay: 0.3, ease }}
             style={{ y: yCup }}
@@ -76,7 +76,7 @@ export function Hero() {
 
         {/* size picker */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
           className="mt-9"
@@ -110,17 +110,16 @@ export function Hero() {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
           className="mx-auto mt-10 max-w-xl text-balance text-lg text-mocha md:text-xl"
         >
-          Edible beverage cups made for a memorable sip-and-bite experience
-          with a glass of milk. <span className="font-semibold text-ink">Drink it. Then eat the cup.</span>
+          Edible beverage cups for coffee, latte and chai service. <span className="font-semibold text-ink">Drink it. Then eat the cup.</span>
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
           className="mt-9 flex flex-wrap items-center justify-center gap-3"
@@ -141,7 +140,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-12 pb-16 text-xs font-bold uppercase tracking-[0.25em] text-ink/50"

@@ -55,23 +55,22 @@ export function Sustainability() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tight md:text-6xl">
-                The only cup you <span className="text-honey">can't</span> throw away.
+                Make the cup <span className="text-honey">part</span> of the experience.
               </h2>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-cream/75">
-                Every year, roughly <span className="font-semibold text-cream">58 billion</span>{" "}
-                paper cups end up in landfills — wax-lined, unrecyclable, forgotten. Ours get
-                baked, sipped from, and happily devoured. The landfill never even knows we were
-                here.
+                Pour your drink, enjoy the last sip, then eat the cup. Explore a different
+                way to serve beverages at your café, hotel or event. Request product
+                information and samples to evaluate the fit for your service.
               </p>
             </Reveal>
 
             <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10">
-              <Stat started={inView} value={100} suffix="%" label="edible — shell, lining, even the stamp" />
-              <Stat started={inView} value={0} suffix="" label="lids, liners, straws or guilt required" />
-              <Stat started={inView} value={40} suffix="+" label="minutes crispy. we timed it. twice." />
-              <Stat started={inView} value={58} suffix="B" label="paper cups binned yearly — somebody had to chew back" />
+              <Stat started={inView} value={1} suffix="" label="edible cup experience" />
+              <Stat started={inView} value={2} suffix="" label="markets: Canada & USA" />
+              <Stat started={inView} value={1} suffix="" label="cup becomes part of the experience" />
+              <Stat started={inView} value={3} suffix="" label="steps: pour, sip, bite" />
             </div>
           </div>
 
@@ -84,7 +83,7 @@ export function Sustainability() {
                 className="aspect-[4/4.6] w-full rounded-[1.8rem] object-cover"
               />
               <span className="absolute -left-6 -top-6 grid h-28 w-28 -rotate-12 place-items-center rounded-full bg-caramel p-3 text-center font-display text-[11px] font-extrabold uppercase leading-tight tracking-wider text-cream shadow-xl">
-                oat, wheat & cocoa
+                pour, sip & bite
               </span>
             </div>
             <p className="mt-6 -rotate-2 text-center font-hand text-2xl text-honey">
