@@ -1,12 +1,12 @@
-import { Nav } from "./components/Nav";
-import { Hero } from "./components/Hero";
-import { HowItWorks } from "./components/HowItWorks";
-import { Flavors } from "./components/Flavors";
-import { Sustainability } from "./components/Sustainability";
-import { Wholesale } from "./components/Wholesale";
-import { WhoWeServe } from "./components/WhoWeServe";
-import { Footer } from "./components/Footer";
-import { WhatsAppButton } from "./components/WhatsAppButton";
+import { Nav } from "./Nav";
+import { Hero } from "./Hero";
+import { HowItWorks } from "./HowItWorks";
+import { Flavors } from "./Flavors";
+import { Sustainability } from "./Sustainability";
+import { Wholesale } from "./Wholesale";
+import { WhoWeServe } from "./WhoWeServe";
+import { Footer } from "./Footer";
+import { WhatsAppButton } from "./WhatsAppButton";
 
 export default function App() {
   return (
