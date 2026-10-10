@@ -9,11 +9,6 @@ const links = [
   { label: "Flavors & Sizes", href: "#flavors" },
   { label: "Pricing", href: "#pricing" },
   { label: "Who We Serve", href: "#segments" },
-  { label: "Wholesale", href: "/wholesale" },
-  { label: "For Cafés", href: "/cafes" },
-  { label: "Events & Catering", href: "/events" },
-  { label: "Hotels", href: "/hospitality" },
-  { label: "Distributors", href: "/distributors" },
 ];
 
 export function Nav() {
@@ -22,7 +17,7 @@ export function Nav() {
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={false}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="fixed inset-x-3 top-3 z-50 md:inset-x-6 md:top-5"
@@ -74,7 +69,7 @@ export function Nav() {
       <AnimatePresence>
         {menu && (
           <motion.div
-            initial={{ opacity: 0, y: -24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -24 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -101,7 +96,7 @@ export function Nav() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMenu(false)}
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.08 + i * 0.06 }}
                   className="border-b border-ink/10 py-5 font-display text-4xl font-extrabold uppercase tracking-tight"
@@ -113,7 +108,7 @@ export function Nav() {
             <motion.a
               href="#inquiry"
               onClick={() => setMenu(false)}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.42 }}
               className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-caramel px-7 py-4 font-display text-sm font-extrabold uppercase tracking-widest text-cream"

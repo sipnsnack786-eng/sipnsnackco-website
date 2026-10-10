@@ -1,54 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
 [[redirects]]
   from = "https://sipnsnackco.ca/*"
   to = "https://www.sipnsnackco.ca/:splat"
   status = 301
   force = true
-
-[[redirects]]
-  from = "/wholesale"
-  to = "/wholesale.html"
-  status = 200
-
-[[redirects]]
-  from = "/cafes"
-  to = "/cafes.html"
-  status = 200
-
-[[redirects]]
-  from = "/events"
-  to = "/events.html"
-  status = 200
-
-[[redirects]]
-  from = "/hospitality"
-  to = "/hospitality.html"
-  status = 200
-
-[[redirects]]
-  from = "/distributors"
-  to = "/distributors.html"
-  status = 200
-
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[headers]]
-  for = "/sitemap.xml"
-  [headers.values]
-    Content-Type = "application/xml; charset=UTF-8"
-    Cache-Control = "public, max-age=300"
-
-[[headers]]
-  for = "/robots.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=UTF-8"
-    Cache-Control = "public, max-age=300"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"

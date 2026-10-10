@@ -35,7 +35,7 @@ const volumes = ["Under 240 cups", "240–1,000 cups", "1,000+ cups", "Not sure 
 
 const nextSteps = [
   ["01", "We reply within one business day — a human, not a bot."],
-  ["02", "Your free 6-cup sample kit ships anywhere in Canada & the USA."],
+  ["02", "Request sample availability and delivery details for your location."],
   ["03", "Tasting call, your quote, your first case. Closed over coffee."],
 ] as const;
 
@@ -73,13 +73,13 @@ function InquiryForm() {
       _captcha: "false",
       _autoresponse:
         "Thanks for contacting Sip N Snack Co.! We received your request and will reply within one business day (Mon–Sat, 9 AM–6 PM). — Sip N Snack Co., 747 Don Mills Rd, Toronto",
-      lead_type: leadType === "sample" ? "FREE SAMPLE KIT" : "Pricing / bulk order",
+      lead_type: leadType === "sample" ? "SAMPLE REQUEST" : "Pricing / bulk order",
       name: String(data.get("name") || ""),
       business: biz,
       email: String(data.get("email") || ""),
       phone: String(data.get("phone") || "—"),
       segment,
-      estimated_volume: leadType === "pricing" ? volume : "6-cup sample kit",
+      estimated_volume: leadType === "pricing" ? volume : "sample request",
       delivery_address: leadType === "sample" ? String(data.get("address") || "") : "—",
       message: String(data.get("message") || "—"),
     };
@@ -90,7 +90,8 @@ function InquiryForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("send failed");
+      const result = await res.json();
+      if (!res.ok || (result.success !== true && result.success !== "true")) throw new Error("send failed");
       setPhase("sent");
     } catch {
       setPhase("error");
@@ -98,7 +99,7 @@ function InquiryForm() {
   };
 
   const mailFallback = `mailto:${SITE.email}?subject=${encodeURIComponent(
-    leadType === "sample" ? "Free sample kit request" : "Pricing inquiry",
+    leadType === "sample" ? "Sample request" : "Pricing inquiry",
   )}`;
 
   return (
@@ -110,12 +111,12 @@ function InquiryForm() {
         {phase === "sent" ? (
           <motion.div
             key="sent"
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             className="flex min-h-[420px] flex-col items-center justify-center text-center"
           >
             <motion.div
-              initial={{ scale: 0, rotate: -16 }}
+              initial={false}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 16 }}
             >
@@ -127,15 +128,14 @@ function InquiryForm() {
             </motion.div>
             <h4 className="mt-5 font-display text-3xl font-extrabold">
               {leadType === "sample"
-                ? "Your kit is being packed!"
+                ? "Your sample request was received!"
                 : `Thanks${name ? `, ${name.split(" ")[0]}` : ""}!`}
             </h4>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-mocha">
               {leadType === "sample" ? (
                 <>
                   We'll confirm details at{" "}
-                  <span className="font-semibold text-ink">{email || "your email"}</span> and ship
-                  your 6-cup tasting box — free, anywhere in Canada & the USA.
+                  <span className="font-semibold text-ink">{email || "your email"}</span> and discuss sample availability and delivery to your location.
                 </>
               ) : (
                 <>
@@ -156,7 +156,7 @@ function InquiryForm() {
         ) : phase === "error" ? (
           <motion.div
             key="error"
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             className="flex min-h-[420px] flex-col items-center justify-center text-center"
           >
@@ -191,7 +191,7 @@ function InquiryForm() {
         ) : (
           <motion.form
             key="form"
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: -12 }}
             onSubmit={submit}
@@ -234,7 +234,7 @@ function InquiryForm() {
             </div>
             <p className="mt-2 text-xs leading-relaxed text-mocha">
               {leadType === "sample"
-                ? "A 6-cup tasting box — every size, every flavor — shipped free across Canada & the USA."
+                ? "Request a sample to evaluate cup suitability and discuss shipping arrangements."
                 : "Tell us your volume and we'll send a tailored quote within one business day."}
             </p>
 
@@ -315,7 +315,7 @@ function InquiryForm() {
 
             {leadType === "sample" ? (
               <motion.div
-                initial={{ opacity: 0, y: 8 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4"
               >
@@ -331,7 +331,7 @@ function InquiryForm() {
                 />
               </motion.div>
             ) : (
-              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4">
+              <motion.div initial={false} animate={{ opacity: 1, y: 0 }} className="mt-4">
                 <span className={labelCls}>Estimated quantity</span>
                 <div className="flex flex-wrap gap-2">
                   {volumes.map((v) => (
@@ -477,7 +477,7 @@ function PriceCalculator() {
         </div>
         {bulk && (
           <motion.div
-            initial={{ opacity: 0, y: -4 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center justify-between font-semibold text-honey"
           >
@@ -498,7 +498,7 @@ function PriceCalculator() {
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
               key={`${ml.ml}-${qty}`}
-              initial={{ opacity: 0, y: 10 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.18 }}
@@ -547,8 +547,8 @@ export function Wholesale() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 max-w-lg text-lg leading-relaxed text-cream/70">
-                Request a <span className="font-semibold text-cream">free 6-cup sample kit</span>{" "}
-                for your café, wedding or hotel — shipped free across Canada & the USA. Love it?
+                Request a <span className="font-semibold text-cream">sample</span>{" "}
+                for your café, wedding or hotel — ask about availability and delivery. Love it?
                 Order by size from <span className="font-semibold text-cream">$0.65–$0.80/pc</span>{" "}
                 and take <span className="font-semibold text-honey">10% off</span> every 1,000+ pc
                 run.
