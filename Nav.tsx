@@ -11,6 +11,9 @@ const links = [
   { label: "Who We Serve", href: "#segments" },
   { label: "Wholesale", href: "/wholesale" },
   { label: "For Cafés", href: "/cafes" },
+  { label: "Events & Catering", href: "/events" },
+  { label: "Hotels", href: "/hospitality" },
+  { label: "Distributors", href: "/distributors" },
 ];
 
 export function Nav() {
