@@ -1,0 +1,46 @@
+import assert from "node:assert/strict";
+import React from "react";
+import { create, act } from "react-test-renderer";
+import { createServer } from "vite";
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+globalThis.window = { location: { search: "?interest=Wholesale%20pricing" } };
+globalThis.document = { getElementById: () => ({ focus() {} }) };
+const vite = await createServer({ optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true }, appType: "custom" });
+let app;
+try {
+  const { default: Storefront } = await vite.ssrLoadModule("/Storefront.tsx");
+  await act(async () => { app = create(React.createElement(Storefront)); });
+  const button = label => app.root.findAllByType("button").find(b => b.props["aria-label"] === label);
+  await act(async () => button("Open menu").props.onClick());
+  assert(app.root.findAllByType("nav").some(n => n.props["aria-label"] === "Mobile navigation"));
+  await act(async () => button("Close menu").props.onClick());
+  assert(!app.root.findAllByType("nav").some(n => n.props["aria-label"] === "Mobile navigation"));
+  const tabs = () => app.root.findAllByProps({ role: "tab" });
+  await act(async () => tabs()[1].props.onClick());
+  assert.equal(tabs()[1].props["aria-selected"], true);
+  assert(app.root.findAllByType("img").some(i => i.props.src === "/images/cup-cardamom.jpg"));
+  await act(async () => tabs()[1].props.onKeyDown({ key: "ArrowRight", preventDefault() {} }));
+  assert.equal(tabs()[2].props["aria-selected"], true);
+  const faqButton = app.root.findByProps({ "aria-controls": "faq-answer-1" });
+  await act(async () => faqButton.props.onClick());
+  assert.equal(app.root.findByProps({ id: "faq-answer-1" }).props.hidden, false);
+  assert.equal(app.root.findByProps({ id: "faq-answer-0" }).props.hidden, true);
+  assert.equal(app.root.findByProps({ name: "inquiry_type" }).props.value, "Wholesale pricing");
+  globalThis.FormData = class { entries() { return Object.entries({ name: "Test buyer", business: "Test café", email: "test@example.invalid", location: "Toronto", message: "Sample inquiry" }); } };
+  let payload;
+  globalThis.fetch = async (_, options) => { payload = JSON.parse(options.body); return { ok: true, json: async () => ({ success: "false" }) }; };
+  await act(async () => app.root.findByType("form").props.onSubmit({ preventDefault() {}, currentTarget: {} }));
+  assert.equal(app.root.findAllByProps({ role: "alert" }).length, 1, "Provider rejection must be visible");
+  assert.equal(app.root.findAllByProps({ role: "status" }).length, 0, "Provider rejection must not claim success");
+  assert.equal(payload.flavor_interest, "Chocolate");
+  assert.equal(payload.inquiry_type, "Wholesale pricing");
+  globalThis.fetch = async () => ({ ok: true, json: async () => ({ success: "true" }) });
+  await act(async () => app.root.findByType("form").props.onSubmit({ preventDefault() {}, currentTarget: {} }));
+  assert.equal(app.root.findAllByProps({ role: "status" }).length, 1);
+  assert.equal(app.root.findAllByType("form").length, 0);
+  console.log("PASS: mobile menu, flavour selection, keyboard tabs, FAQ, inquiry routing, rejected/successful submissions and selected-flavour payload");
+} finally {
+  if (app) await act(async () => app.unmount());
+  await vite.close();
+}
