@@ -91,7 +91,7 @@ export const marqueeWords = [
   "Edible cups from $0.65/pc",
   "Edible cups for beverage service",
   "Business and wholesale inquiries",
-  "Free Canada & USA delivery",
+  "Serving Canada & USA business buyers",
   "Request product information",
 ];
 
