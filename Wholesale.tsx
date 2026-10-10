@@ -19,7 +19,7 @@ import {
   Package,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { BULK_OFF, BULK_QTY, fmt, priceFor, qtyOptions, SIZES, SITE } from "./site";
+import { BULK_OFF, BULK_QTY, fmt, priceFor, qtyOptions, SIZES, SITE } from "../data/site";
 
 const segments = [
   { icon: Coffee, label: "Café" },
@@ -35,7 +35,7 @@ const volumes = ["Under 240 cups", "240–1,000 cups", "1,000+ cups", "Not sure 
 
 const nextSteps = [
   ["01", "We reply within one business day — a human, not a bot."],
-  ["02", "Your free 6-cup sample kit ships anywhere in Canada & the USA."],
+  ["02", "Request sample availability and delivery details for your location."],
   ["03", "Tasting call, your quote, your first case. Closed over coffee."],
 ] as const;
 
@@ -73,13 +73,13 @@ function InquiryForm() {
       _captcha: "false",
       _autoresponse:
         "Thanks for contacting Sip N Snack Co.! We received your request and will reply within one business day (Mon–Sat, 9 AM–6 PM). — Sip N Snack Co., 747 Don Mills Rd, Toronto",
-      lead_type: leadType === "sample" ? "FREE SAMPLE KIT" : "Pricing / bulk order",
+      lead_type: leadType === "sample" ? "SAMPLE REQUEST" : "Pricing / bulk order",
       name: String(data.get("name") || ""),
       business: biz,
       email: String(data.get("email") || ""),
       phone: String(data.get("phone") || "—"),
       segment,
-      estimated_volume: leadType === "pricing" ? volume : "6-cup sample kit",
+      estimated_volume: leadType === "pricing" ? volume : "sample request",
       delivery_address: leadType === "sample" ? String(data.get("address") || "") : "—",
       message: String(data.get("message") || "—"),
     };
@@ -98,7 +98,7 @@ function InquiryForm() {
   };
 
   const mailFallback = `mailto:${SITE.email}?subject=${encodeURIComponent(
-    leadType === "sample" ? "Free sample kit request" : "Pricing inquiry",
+    leadType === "sample" ? "Sample request" : "Pricing inquiry",
   )}`;
 
   return (
@@ -234,7 +234,7 @@ function InquiryForm() {
             </div>
             <p className="mt-2 text-xs leading-relaxed text-mocha">
               {leadType === "sample"
-                ? "A 6-cup tasting box — every size, every flavor — shipped free across Canada & the USA."
+                ? "Request a sample to evaluate cup suitability and discuss shipping arrangements."
                 : "Tell us your volume and we'll send a tailored quote within one business day."}
             </p>
 
@@ -547,8 +547,8 @@ export function Wholesale() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-5 max-w-lg text-lg leading-relaxed text-cream/70">
-                Request a <span className="font-semibold text-cream">free 6-cup sample kit</span>{" "}
-                for your café, wedding or hotel — shipped free across Canada & the USA. Love it?
+                Request a <span className="font-semibold text-cream">sample request</span>{" "}
+                for your café, wedding or hotel — ask about availability and delivery. Love it?
                 Order by size from <span className="font-semibold text-cream">$0.65–$0.80/pc</span>{" "}
                 and take <span className="font-semibold text-honey">10% off</span> every 1,000+ pc
                 run.

@@ -68,10 +68,10 @@ export function Sustainability() {
             </Reveal>
 
             <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10">
-              <Stat started={inView} value={1} suffix="" label="edible cup experience" />
-              <Stat started={inView} value={2} suffix="" label="markets: Canada & USA" />
-              <Stat started={inView} value={1} suffix="" label="cup becomes part of the experience" />
-              <Stat started={inView} value={3} suffix="" label="steps: pour, sip, bite" />
+              <Stat started={inView} value={100} suffix="%" label="edible — shell, lining, even the stamp" />
+              <Stat started={inView} value={0} suffix="" label="lids, liners, straws or guilt required" />
+              <Stat started={inView} value={40} suffix="+" label="minutes crispy. we timed it. twice." />
+              <Stat started={inView} value={58} suffix="B" label="paper cups binned yearly — somebody had to chew back" />
             </div>
           </div>
 

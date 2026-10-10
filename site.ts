@@ -62,7 +62,7 @@ export const steps: Step[] = [
   {
     n: "01",
     title: "Fill it up",
-    body: "Espresso, flat white, hot cocoa, a slow Sunday chai. Pour your beverage, enjoy your drink, then eat the cup.",
+    body: "Espresso, flat white, hot cocoa, a slow Sunday chai. Ask about cup suitability for your beverages and serving needs.",
     scribble: "no soggy bottoms!",
   },
   {
@@ -74,8 +74,8 @@ export const steps: Step[] = [
   {
     n: "03",
     title: "Eat the cup",
-    body: "Finish your drink, then enjoy the edible cup.",
-    scribble: "pour · sip · bite",
+    body: "Last sip, first bite. The evidence disappears, the dishes stay clean, and a landfill somewhere gets a day off.",
+    scribble: "sip then bite",
   },
 ];
 
@@ -88,11 +88,11 @@ export const marqueeWords = [
   "Bite",
   "Sip",
   "Smile",
-  "Edible cups from $0.65/pc",
-  "Edible cups for beverage service",
-  "Business and wholesale inquiries",
+  "Wholesale quotes available",
+  "4 sizes · 100–250 ml",
+  "Wholesale pricing on request",
   "Serving Canada & USA business buyers",
-  "Request product information",
+  "Vanilla · Cardamom · Chocolate",
 ];
 
 export const SITE = {

@@ -19,7 +19,7 @@ const segments = [
   {
     icon: Store,
     title: "Coffee shops & roasters",
-    body: "Shelf-ready sleeves that move fast next to the beans. Private-label packaging and custom edible stamps available.",
+    body: "Ask about wholesale supply for your coffee shop and product presentation needs.",
   },
   {
     icon: PartyPopper,
@@ -34,12 +34,12 @@ const segments = [
   {
     icon: Briefcase,
     title: "Corporate events",
-    body: "Explore edible cups for meetings, conferences, trade shows and corporate hospitality.",
+    body: "Branded, edible logo stamps on every cup. Meetings, conferences, trade shows — sustainability you can actually eat.",
   },
   {
     icon: Building2,
     title: "Hotels",
-    body: "In-room turndown cups, lobby bars, and banquet service. Contact us about business supply for hotel and banquet service.",
+    body: "In-room turndown cups, lobby bars, and banquet service. Case pricing, scheduled deliveries, zero landfill liability.",
   },
   {
     icon: UtensilsCrossed,
@@ -49,7 +49,7 @@ const segments = [
   {
     icon: CupSoda,
     title: "…and anyone pouring",
-    body: "Food trucks, markets, festivals — tell us the crowd, we'll size the order. Free delivery across Canada & the USA.",
+    body: "Food trucks, markets, festivals — tell us the crowd, we'll size the order. Delivery arrangements discussed with each order.",
   },
 ];
 
@@ -71,7 +71,7 @@ export function WhoWeServe() {
           </div>
           <Reveal delay={0.15}>
             <p className="max-w-xs text-mocha">
-              One product, seven industries. Pick your lane — we spec, stamp, and ship it.
+              One product, many business applications. Tell us about your requirements.
             </p>
           </Reveal>
         </div>

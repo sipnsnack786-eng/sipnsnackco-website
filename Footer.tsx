@@ -11,7 +11,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { SITE } from "./site";
+import { SITE } from "../data/site";
 
 export function Footer() {
   return (
@@ -50,7 +50,7 @@ export function Footer() {
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mx-auto mt-5 max-w-md text-lg text-cream/85">
-                Start with a free 6-cup sample box — our edible cups for your business — shipped free across
+                Ask about samples and wholesale options for businesses across
                 Canada & the USA.
               </p>
             </Reveal>
@@ -92,7 +92,7 @@ export function Footer() {
                 </span>
               </a>
               <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
-                Edible beverage cups for cafés, hospitality, catering and events. Drink it, then eat the cup.
+                Edible coffee cups for businesses in Canada and the USA. Drink it, then eat the cup.
                 Bite · Sip · Smile.
               </p>
               <div className="mt-5 flex gap-2">

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { BadgeDollarSign, FileText, Leaf, Package } from "lucide-react";
 import { Eyebrow, Reveal } from "./Reveal";
-import { fmt, priceFor, products, SIZES, SLEEVE_SIZE, SITE, type Product } from "./site";
+import { fmt, priceFor, products, SIZES, SLEEVE_SIZE, type Product } from "../data/site";
 
 function ProductCard({ p, i }: { p: Product; i: number }) {
   const [ml, setMl] = useState(200);
@@ -134,12 +134,6 @@ export function Flavors() {
               );
             })}
           </div>
-        </Reveal>
-
-        <Reveal delay={0.25}>
-          <p className="mt-10 text-center text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
-            Business inquiries · Serving Canada & the USA
-          </p>
         </Reveal>
       </div>
     </section>

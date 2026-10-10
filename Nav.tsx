@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Cookie, Menu, X } from "lucide-react";
-import { SITE } from "./site";
+import { SITE } from "../data/site";
 
 const links = [
   { label: "Product", href: "#product" },
@@ -9,11 +9,6 @@ const links = [
   { label: "Flavors & Sizes", href: "#flavors" },
   { label: "Pricing", href: "#pricing" },
   { label: "Who We Serve", href: "#segments" },
-  { label: "Wholesale", href: "/wholesale" },
-  { label: "For Cafés", href: "/cafes" },
-  { label: "Events & Catering", href: "/events" },
-  { label: "Hotels", href: "/hospitality" },
-  { label: "Distributors", href: "/distributors" },
 ];
 
 export function Nav() {

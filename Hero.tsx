@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, BadgeDollarSign, Leaf, Timer } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 import { Marquee } from "./Marquee";
-import { fmt, marqueeWords, SIZES } from "./site";
+import { fmt, marqueeWords, SIZES } from "../data/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -28,8 +28,6 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
   const yCup = useTransform(scrollYProgress, [0, 1], [0, 110]);
-  const yBadgeL = useTransform(scrollYProgress, [0, 1], [0, -90]);
-  const yBadgeR = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const [size, setSize] = useState(SIZES[2]);
 
   return (
@@ -40,86 +38,37 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-dots opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
 
       <div className="relative mx-auto max-w-6xl px-4 text-center">
-        <h1 className="relative font-display text-[clamp(4rem,15vw,11.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.03em]" aria-label="Edible Cups for Cafés, Hospitality and Events">
+        <h1 className="relative font-display text-[clamp(4rem,15vw,11.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.03em]">
           {word("Bite.", 0.05)}
           {word(<span className="text-stroke-ink">Sip.</span>, 0.15)}
 
           {/* the cup */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.6, rotate: -12 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.1, delay: 0.3, ease }}
+            initial={{ opacity: 0, scale: 0.85, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.3, delay: 0.3, ease }}
             style={{ y: yCup }}
             className="relative z-10 mx-auto -my-[clamp(1.2rem,5vw,3rem)] aspect-square w-[clamp(230px,36vw,400px)]"
           >
-            {/* steam */}
-            <div className="pointer-events-none absolute -top-7 left-1/2 flex -translate-x-1/2 gap-3">
-              {[0, 0.5, 1].map((d) => (
-                <span
-                  key={d}
-                  style={{ animationDelay: `${d}s` }}
-                  className="block h-6 w-1.5 animate-steam rounded-full bg-mocha/40 blur-[2px]"
-                />
-              ))}
+            {/* soft golden halo */}
+            <div className="pointer-events-none absolute -inset-[18%] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-honey)_45%,transparent)_0%,transparent_65%)] blur-2xl" />
+
+            <div className="group relative h-full w-full animate-float-soft">
+              {/* gilded rim */}
+              <div className="absolute -inset-[3px] rounded-full bg-[conic-gradient(from_140deg,var(--color-honey),var(--color-parchment),var(--color-caramel-deep),var(--color-parchment),var(--color-honey))] shadow-[0_40px_80px_-30px_rgba(43,22,12,0.55)]" />
+              <div className="relative h-full w-full overflow-hidden rounded-full p-[7px]">
+                <div className="relative h-full w-full overflow-hidden rounded-full bg-parchment">
+                  <img
+                    src="/images/hero-cup.jpg"
+                    alt="Edible wafer cup filled with cappuccino"
+                    className="h-full w-full scale-[1.02] object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.08]"
+                  />
+                  {/* inner vignette + light sweep */}
+                  <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(43,22,12,0.18)]" />
+                  <div className="pointer-events-none absolute inset-0 animate-shine bg-[linear-gradient(115deg,transparent_35%,rgba(255,250,235,0.45)_50%,transparent_65%)] bg-[length:250%_100%]" />
+                </div>
+              </div>
             </div>
-
-            {/* hand-drawn orbit */}
-            <div className="pointer-events-none absolute -inset-5 rounded-full border-2 border-dashed border-ink/25" />
-            <div className="pointer-events-none absolute -inset-12 rounded-full border border-ink/10" />
-
-            <img
-              src="/images/hero-cup.jpg"
-              alt="Edible wafer cup filled with cappuccino"
-              className="h-full w-full rounded-full border-[6px] border-parchment object-cover shadow-2xl shadow-ink/25"
-            />
-
-            {/* floating badges */}
-            <motion.div style={{ y: yBadgeL }} className="absolute -left-[16%] top-[6%]">
-              <div
-                style={{ ["--float-rot" as string]: "-6deg" }}
-                className="animate-float rounded-2xl bg-caramel px-4 py-2.5 text-left text-cream shadow-xl shadow-caramel/40"
-              >
-                <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest opacity-90">
-                  <BadgeDollarSign className="h-3.5 w-3.5" /> {size.ml} ml
-                </span>
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.span
-                    key={size.ml}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.18 }}
-                    className="block font-display text-xl font-extrabold leading-none"
-                  >
-                    {fmt(size.price)}/pc
-                  </motion.span>
-                </AnimatePresence>
-              </div>
-            </motion.div>
-
-            <motion.div style={{ y: yBadgeR }} className="absolute -right-[14%] top-[42%]">
-              <div
-                style={{ ["--float-rot" as string]: "5deg" }}
-                className="animate-float-delay flex items-center gap-2 rounded-2xl bg-pistachio px-4 py-2.5 text-cream shadow-xl shadow-pistachio/40"
-              >
-                <Leaf className="h-4 w-4" />
-                <span className="font-display text-sm font-extrabold">100% edible</span>
-              </div>
-            </motion.div>
-
-            <motion.div style={{ y: yBadgeL }} className="absolute -bottom-[4%] -left-[10%]">
-              <div
-                style={{ ["--float-rot" as string]: "3deg" }}
-                className="animate-float flex items-center gap-2 rounded-2xl bg-ink px-4 py-2.5 text-cream shadow-xl shadow-ink/30"
-              >
-                <Timer className="h-4 w-4 text-honey" />
-                <span className="font-display text-sm font-extrabold">Edible cup</span>
-              </div>
-            </motion.div>
-
-            <span className="absolute -right-[6%] -top-[8%] -rotate-12 font-hand text-2xl text-caramel-deep md:text-3xl">
-              still warm!
-            </span>
           </motion.div>
 
           {word(<span className="text-caramel">Smile.</span>, 0.25)}
@@ -166,7 +115,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.55 }}
           className="mx-auto mt-10 max-w-xl text-balance text-lg text-mocha md:text-xl"
         >
-          Edible beverage cups designed for coffee, latte and chai service. <span className="font-semibold text-ink">Drink it. Then eat the cup.</span>
+          Edible beverage cups made for a memorable sip-and-bite experience
+          with a glass of milk. <span className="font-semibold text-ink">Drink it. Then eat the cup.</span>
         </motion.p>
 
         <motion.div
@@ -196,7 +146,7 @@ export function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-12 pb-16 text-xs font-bold uppercase tracking-[0.25em] text-ink/50"
         >
-          Free delivery across Canada & the USA · 10% off 1,000+ pcs
+          Edible cups for cafés, caterers and hospitality · Canada & USA
         </motion.div>
       </div>
 

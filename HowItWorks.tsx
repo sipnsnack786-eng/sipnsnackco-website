@@ -1,6 +1,6 @@
 import { Coffee, Cookie, CupSoda } from "lucide-react";
 import { Eyebrow, Reveal } from "./Reveal";
-import { steps } from "./site";
+import { steps } from "../data/site";
 
 const icons = [Coffee, CupSoda, Cookie];
 
