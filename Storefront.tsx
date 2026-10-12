@@ -23,7 +23,7 @@ const faqs = [
   ["How do I get wholesale pricing?", "Share your business type, location, estimated quantity and delivery date. We will prepare a quote and confirm product options, delivery and payment terms."],
 ];
 const wa = `${SITE.whatsapp}?text=${encodeURIComponent("Hi Sip N Snack Co., I’m interested in learning more about your edible cups for my business.")}`;
-export function Brand() { return <a className="brand" href="/" aria-label="Sip N Snack Co. home"><span className="brand-mark"><Coffee size={24} strokeWidth={1.5}/></span><span>Sip N Snack<span className="brand-co">CO. · BITE • SIP • SMILE</span></span></a>; }
+export function Brand() { return <a className="brand" href="/" aria-label="Sip N Snack Co. home"><img className="brand-logo" src="/images/sip-n-snack-logo.png" alt="Sip N Snack Co. — Bite • Sip • Smile" width="2172" height="724"/></a>; }
 const Cta = ({ children, href = "#inquiry", light = false }: { children: React.ReactNode; href?: string; light?: boolean }) => <a className={`button ${light ? "light" : "dark"}`} href={href}>{children}<ArrowUpRight size={18}/></a>;
 
 function Inquiry({ flavor }: { flavor: string }) {
