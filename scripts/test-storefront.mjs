@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import React from "react";
 import { create, act } from "react-test-renderer";
 import { createServer } from "vite";
@@ -6,6 +7,8 @@ import { createServer } from "vite";
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 globalThis.window = { location: { search: "?interest=Wholesale%20pricing" } };
 globalThis.document = { getElementById: () => ({ focus() {} }) };
+const redirects = await readFile("public/_redirects", "utf8");
+assert(!/^\/(?:edible-cups|wholesale|cafes|events|hospitality|distributors|privacy)\s+\/[^\s]+\.html\s+200$/m.test(redirects), "Business routes must not rewrite to .html on Cloudflare Pages");
 const vite = await createServer({ optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true }, appType: "custom" });
 let app;
 try {
