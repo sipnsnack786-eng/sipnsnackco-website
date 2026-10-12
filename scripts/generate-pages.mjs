@@ -74,7 +74,6 @@ for (const [route,p] of Object.entries(pages)) {
   await writeFile(`public/${route}.html`,html);
 }
 await writeFile("public/privacy.html", `${head("privacy","Inquiry Privacy Notice","How Sip N Snack Co. handles information submitted through its business inquiry form.")}<main class="section landing-content privacy-content"><span class="eyebrow">SIP N SNACK CO.</span><h1>Inquiry privacy notice.</h1><p>Effective October 10, 2026.</p><article><h2>Information you submit</h2><p>The business inquiry form collects your name, business name and type, optional role and website, email address, optional phone number, location, country, estimated order quantity, supply requirement, inquiry type, flavour interest and message. Please do not submit payment card details or other sensitive information through this form.</p></article><article><h2>How your inquiry is used</h2><p>Sip N Snack Co. uses this information to respond to your request and discuss product options, samples, quotes and delivery. This form does not subscribe you to a marketing mailing list.</p></article><article><h2>Form delivery and external services</h2><p>Form submissions are sent through FormSubmit, a third-party form delivery provider, to Sip N Snack Co. Contacting us by email or WhatsApp uses those services and their own privacy practices. Google Fonts supplies website fonts and may receive technical connection information from your browser.</p></article><article><h2>Questions or requests</h2><p>Contact sipnsnack786@gmail.com to ask about your inquiry information, request a correction or request deletion of information you submitted. Information needed to fulfill an order or meet applicable obligations may need to be retained.</p></article><a class="button dark" href="/">Back to Sip N Snack ↗</a></main>${footer}</body></html>`);
-const routes=[...Object.keys(pages),"privacy"];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${["", ...Object.keys(pages)].map(route => `  <url><loc>https://www.sipnsnackco.ca/${route}</loc><lastmod>2026-10-12</lastmod></url>`).join("\n")}\n</urlset>\n`;
 await writeFile("public/sitemap.xml", sitemap);
 await writeFile("sitemap.xml", sitemap);
@@ -82,4 +81,7 @@ await writeFile("sitemap.xml", sitemap);
 for (const route of ["wholesale", "cafes", "events", "hospitality", "distributors"]) {
   await writeFile(`${route}.html`, await readFile(`public/${route}.html`, "utf8"));
 }
-await writeFile("public/_redirects",routes.map(r=>`/${r}.html /${r} 301\n/${r} /${r}.html 200`).join("\n")+"\n");
+// Cloudflare Pages serves `route.html` at `/route` automatically. Rewriting
+// `/route` back to the `.html` file creates a self-redirect loop after
+// Cloudflare canonicalizes the extension away, so no per-page rules are needed.
+await writeFile("public/_redirects", "# Extensionless HTML routes are handled by Cloudflare Pages.\n");
