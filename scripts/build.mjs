@@ -1,3 +1,4 @@
+await import("./optimize-images.mjs");
 import { build, createServer } from "vite";
 import { readFile, writeFile } from "node:fs/promises";
 
