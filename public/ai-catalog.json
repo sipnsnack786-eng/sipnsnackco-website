@@ -1,32 +1,8 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "name": "Sip N Snack Co.",
-  "description": "B2B supplier of made-to-order edible beverage cups serving Toronto, Ontario, Canada and USA business inquiries.",
-  "url": "https://www.sipnsnackco.ca/",
-  "type": "Organization",
-  "products": [
-    {
-      "name": "Edible beverage cups",
-      "description": "Edible cups for business sample evaluation and wholesale inquiries; confirm current specifications and availability.",
-      "url": "https://www.sipnsnackco.ca/edible-cups"
-    }
-  ],
-  "links": [
-    {
-      "title": "Wholesale",
-      "url": "https://www.sipnsnackco.ca/wholesale"
-    },
-    {
-      "title": "Distributors",
-      "url": "https://www.sipnsnackco.ca/distributors"
-    },
-    {
-      "title": "Events",
-      "url": "https://www.sipnsnackco.ca/events"
-    },
-    {
-      "title": "Sitemap",
-      "url": "https://www.sipnsnackco.ca/sitemap.xml"
-    }
-  ]
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Sip N Snack Co.",
+    "documentationUrl": "https://www.sipnsnackco.ca/edible-cups"
+  },
+  "entries": []
 }
