@@ -1,0 +1,2 @@
+IMAGE-ONLY REPLACEMENT FOR EXISTING SIP N SNACK CO. REACT SITE
+Copy public/images files to matching paths in the GitHub repository. Existing image filenames are preserved; no changes to layout, text, forms or branding are required. Additional pallet-classic.jpg and pallet-shrinkwrapped.jpg are included for later placement in wholesale section; model-brand.jpg is also included. No website code is changed in this package.
