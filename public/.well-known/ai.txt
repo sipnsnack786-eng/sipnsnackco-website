@@ -1,0 +1,9 @@
+# AI information about Sip N Snack Co.
+
+Official website: https://www.sipnsnackco.ca/
+Business: Made-to-order edible beverage cups for commercial buyers in Toronto, Ontario, Canada and the USA.
+Contact: sipnsnack786@gmail.com
+AI discovery reference: https://www.sipnsnackco.ca/llms-full.txt
+Sitemap: https://www.sipnsnackco.ca/sitemap.xml
+
+The website permits public information discovery under its robots.txt policies. This file does not grant permission to take actions, place orders, or assume product specifications.
