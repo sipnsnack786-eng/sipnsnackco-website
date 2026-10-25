@@ -11,7 +11,7 @@ catch {
   sharp = (await import("sharp")).default;
 }
 const dir = path.resolve("public/images");
-const images = ["hero-model","collection","iced","chai","chocolate","latte","pallet-classic","pallet-wrapped"];
+const images = ["hero-model","collection","iced","chai","chocolate","latte","pallet-classic","pallet-wrapped","cafe-latte-art","espresso-moment"];
 for (const name of images) {
   const src = path.join(dir, name + ".png");
   await access(src);
