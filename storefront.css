@@ -26,3 +26,9 @@
 .hero-sticker{background:#a83e1b;color:#fffaf0}
 .announcement span{opacity:1}
 .form-submit:disabled{opacity:1;background:#415b4b;color:#fff}
+
+/* Refined storefront navigation and hero — October 2026 */
+@media(min-width:781px){.header-inner{min-height:0;padding:12px 34px;gap:25px}.brand-logo{width:166px}.desktop-nav{gap:clamp(13px,1.6vw,27px);font-size:14px}.header-cta{font-size:13px;padding:15px 19px;white-space:nowrap}.hero{max-width:1320px;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:clamp(26px,3vw,55px);padding:38px 35px 58px}.hero-copy{padding:12px 0}.hero h1{font-size:clamp(64px,7vw,100px);margin:18px 0 20px}.hero-lead{font-size:clamp(19px,2vw,25px);max-width:450px}.hero-body{max-width:520px;font-size:15px;line-height:1.75;margin:19px 0 25px}.hero-visual{min-height:540px;border-radius:105px 105px 14px 14px}.hero-visual>img{object-position:50% 42%}.hero-sticker{width:104px;height:104px;top:26px;right:20px}.hero-photo-tag{bottom:38px}.hero-footnote{margin-top:20px}}
+@media(min-width:781px) and (max-width:1100px){.brand-logo{width:145px}.desktop-nav{gap:13px;font-size:12px}.header-inner{padding:12px 22px}.hero{padding:30px 26px 48px}.hero h1{font-size:clamp(59px,7vw,85px)}.hero-visual{min-height:490px}}
+@media(max-width:780px){.header-inner{padding:10px 20px;min-height:0}.brand-logo{width:155px}.hero{padding:24px 22px 36px;gap:22px}.hero-copy{padding:5px 0 0}.hero h1{font-size:clamp(59px,14vw,85px);margin:13px 0 17px}.hero-lead{font-size:20px}.hero-body{font-size:14px;line-height:1.7;max-width:590px;margin:16px 0 23px}.hero-visual{height:410px;border-radius:90px 90px 12px 12px}.hero-visual>img{object-position:50% 40%}.hero-sticker{top:20px;right:15px}.hero-actions .button{min-height:52px}}
+@media(max-width:420px){.brand-logo{width:145px}.hero h1{font-size:clamp(54px,14vw,66px)}.hero-visual{height:340px}.hero-actions{align-items:stretch}.hero-actions .button{width:100%}.hero-actions .text-link{margin-top:3px}}
