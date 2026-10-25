@@ -29,7 +29,7 @@ const pages = {
   },
 
   wholesale: {
-    title: "Wholesale Edible Cups in Canada & USA", eyebrow: "BUSINESS SUPPLY, WITH A DIFFERENT FINISH", heading: "Wholesale cups.\nFor commercial service.", image: "flatlay.jpg", interest: "Wholesale pricing",
+    title: "Wholesale Edible Cups in Canada & USA", eyebrow: "BUSINESS SUPPLY, WITH A DIFFERENT FINISH", heading: "Wholesale cups.\nFor commercial service.", image: "cafe-latte-art.webp", interest: "Wholesale pricing",
     description: "Explore wholesale edible cups for cafés, hotels, caterers and business buyers in Canada and the USA. Request samples and a tailored quote from Sip N Snack Co.",
     intro: "Edible cups for the businesses that make everyday moments memorable. Tell us what you serve, how many cups you need and where you need them.",
     sections: [
@@ -61,7 +61,7 @@ const pages = {
     questions: [["Who should submit the inquiry?", "A food and beverage, purchasing, events or operations contact can share your property’s requirements."], ["Can we review product documents?", "Request current product specifications, ingredient and allergen details with your inquiry."], ["Can we discuss repeat orders?", "Yes. Share estimated monthly quantities and delivery needs so we can discuss supply arrangements."]],
   },
   distributors: {
-    title: "Edible Cup Distribution & Wholesale Partners", eyebrow: "LET’S EXPLORE THE NEXT OPPORTUNITY", heading: "A new product.\nFor the businesses you serve.", image: "flatlay.jpg", interest: "Distribution partnership",
+    title: "Edible Cup Distribution & Wholesale Partners", eyebrow: "LET’S EXPLORE THE NEXT OPPORTUNITY", heading: "A new product.\nFor the businesses you serve.", image: "espresso-moment.webp", interest: "Distribution partnership",
     description: "Explore edible cup distribution with Sip N Snack Co. Foodservice wholesalers, packaging distributors and resellers in Canada and the USA can inquire about partnership options.",
     intro: "Add a new conversation to your product range. We welcome inquiries from distributors and wholesalers serving cafés, hospitality, catering and event businesses.",
     sections: [["Tell us about your market", "Share the territory you cover, the business customers you serve and your existing product categories. Foodservice, packaging and hospitality channels have different needs; understanding your customer base helps us discuss where edible cups could fit."], ["Evaluate the product opportunity", "Request current product specifications, ingredients, allergens and sample availability before presenting the cups to customers. Share the formats, order quantities and support information your buyers typically require."], ["Discuss the commercial arrangement", "Include your estimated volume, storage and delivery capabilities, business location and contact details. We will discuss current availability, made-to-order supply and potential terms. Territory, exclusivity and distribution pricing are subject to a specific agreement and are not assumed."]],
