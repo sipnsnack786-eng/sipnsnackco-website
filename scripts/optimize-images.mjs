@@ -1,11 +1,18 @@
-import { access } from "node:fs/promises";
+import { access, mkdir } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
+import { pathToFileURL } from "node:url";
 import path from "node:path";
-// Use the already-installed image optimizer without modifying npm dependencies.
-// Image generation is optional; existing source PNGs remain usable if Sharp is absent.
+// Install Sharp in an isolated temporary directory so Vite/Rollup dependencies
+// remain untouched. Optimized images are required by the production storefront.
 let sharp;
 try { sharp = (await import("sharp")).default; }
-catch { console.warn("Sharp unavailable: skipping optional WebP generation."); }
-if (sharp) {
+catch {
+  const optimizerDir = "/tmp/sipnsnack-sharp";
+  await mkdir(optimizerDir, { recursive: true });
+  execFileSync("npm", ["install", "--prefix", optimizerDir, "--no-save", "--no-package-lock", "--ignore-scripts=false", "sharp@0.34.4"], { stdio: "inherit" });
+  sharp = (await import(pathToFileURL(path.join(optimizerDir, "node_modules/sharp/lib/index.js")).href)).default;
+}
+{
 const dir = path.resolve("public/images");
 const images = ["hero-model","collection","iced","chai","chocolate","latte","pallet-classic","pallet-wrapped","cafe-latte-art","espresso-moment"];
 for (const name of images) {
